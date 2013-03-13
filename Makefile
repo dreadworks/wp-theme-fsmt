@@ -3,40 +3,37 @@
 # author: felix hamann <felix@fsmt.dreadworks.de>	
 #
 
-# CC
-CSSCC=sass
-
 # general
 BDIR=build
 BDIRIMG=$(BDIR)/img
 
 # src
-CSSDIR=src/css
-SCSSDIR=$(CSSDIR)/scss
+CSSDIR=src/scss
 IMGDIR=src/img
 
 
 
-all: base css img
+all: base css
 base:
 	mkdir -p build
 	mkdir -p build/img
 
+clean:
+	-rm -rf build
+
 
 # css
 css: $(BDIR)/style.css
-$(BDIR)/style.css: $(CSSDIR)/style.css
-	cp $(CSSDIR)/style.css $(BDIR)/
+$(BDIR)/style.css:
+	sass --update "$(CSSDIR)/core.scss:$(BDIR)/style.css"
 
-$(CSSDIR)/style.css: $(SCSSDIR)/core.scss
-	$(CSSCC) --update $(SCSSDIR)/core.scss $(CSSDIR)/style.css
 
 # images
 img: $(BDIR)/%.jpg $(BDIR)/%.png
 
-$(BDIR)/%.jpg $(IMGDIR)/%.jpg
+$(BDIR)/%.jpg: $(IMGDIR)/%.jpg
 	cp $< $@
 
-$(BDIR)/%.png $(IMGDIR)/%.png
+$(BDIR)/%.png: $(IMGDIR)/%.png
 	cp $< $@
 
