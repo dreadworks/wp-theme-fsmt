@@ -3,17 +3,21 @@
 # author: felix hamann <felix@fsmt.dreadworks.de>	
 #
 
+# prg
+SYNC=rsync -au --delete 
+
 # general
 BDIR=build
 BDIRIMG=$(BDIR)/img
 
 # src
+PHPDIR=src/php
 CSSDIR=src/scss
 IMGDIR=src/img
 
 
 
-all: base css img
+all: base php css img
 base:
 	@echo "\nprepare /build if not present"
 	mkdir -p build
@@ -21,6 +25,15 @@ base:
 
 clean:
 	-rm -rf build
+
+
+# php
+php:
+	@echo "\nsyncing php scripts"
+	$(SYNC) \
+		--include '*.php' \
+		--exclude '*' \
+		$(PHPDIR)/ $(BDIR)
 
 
 # css
@@ -33,5 +46,9 @@ $(BDIR)/style.css:
 # images
 img:
 	@echo "\nsyncing images"
-	rsync -az --update --delete $(IMGDIR) $(BDIRIMG)
+	$(SYNC) \
+		--include '*.jpg' \
+		--include '*.png' \
+		--exclude '*' \
+		$(IMGDIR)/ $(BDIRIMG)/
 
