@@ -13,8 +13,9 @@ IMGDIR=src/img
 
 
 
-all: base css
+all: base css img
 base:
+	@echo "\nprepare /build if not present"
 	mkdir -p build
 	mkdir -p build/img
 
@@ -25,15 +26,12 @@ clean:
 # css
 css: $(BDIR)/style.css
 $(BDIR)/style.css:
+	@echo "\nupdating stylesheets"
 	sass --update "$(CSSDIR)/core.scss:$(BDIR)/style.css"
 
 
 # images
-img: $(BDIR)/%.jpg $(BDIR)/%.png
-
-$(BDIR)/%.jpg: $(IMGDIR)/%.jpg
-	cp $< $@
-
-$(BDIR)/%.png: $(IMGDIR)/%.png
-	cp $< $@
+img:
+	@echo "\nsyncing images"
+	rsync -az --update --delete $(IMGDIR) $(BDIRIMG)
 

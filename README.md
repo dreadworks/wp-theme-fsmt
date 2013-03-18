@@ -4,3 +4,4 @@ used by fsmt.dreadworks.de
 Dependencies:
 	make
 	sass
+	rsync
