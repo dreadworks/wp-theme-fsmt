@@ -3,25 +3,38 @@
 # author: felix hamann <felix@fsmt.dreadworks.de>	
 #
 
-# prg
-SYNC=rsync -au --delete 
 
+#
+#	PROGRAMS
+#
+# rsync
+SYNC := rsync -au --delete
+CP := gcp
+
+
+
+#
+#	DIRECTORIES
+#
 # general
 BDIR=build
-BDIRIMG=$(BDIR)/img
 
 # src
-PHPDIR=src/php
-CSSDIR=src/scss
-IMGDIR=src/img
+PHPDIR := src/php
+CSSDIR := src/scss
+FNTDIR := src/fonts
+IMGDIR := src/img
 
 
-
-all: base php css img
+#
+#	DEPENDENCIES
+#
+all: base php css fonts img
 base:
 	@echo "\nprepare /build if not present"
 	mkdir -p build
 	mkdir -p build/img
+	mkdir -p build/ttf
 
 clean:
 	-rm -rf build
@@ -31,8 +44,8 @@ clean:
 php:
 	@echo "\nsyncing php scripts"
 	$(SYNC) \
-		--include '*.php' \
-		--exclude '*' \
+		--include '*.php'	\
+		--exclude '*'		\
 		$(PHPDIR)/ $(BDIR)
 
 
@@ -43,12 +56,22 @@ $(BDIR)/style.css:
 	sass --update "$(CSSDIR)/core.scss:$(BDIR)/style.css"
 
 
+# fonts
+fonts:
+	@echo "\nsyncing fonts"
+	@echo $(CP) $(CPFLAGS) foo
+#	@find $(FNTDIR) \
+#		-name "SourceSansPro-Light.ttf"		\
+#		-o -name "SourceSansPro-Regular.ttf"	\
+#	| xargs $(CP) $(CPFLAGS) $(BDIR)/ttf/			\
+#	|| cat src/make/cperror.txt; exit 2;
+
+
 # images
 img:
 	@echo "\nsyncing images"
 	$(SYNC) \
-		--include '*.jpg' \
-		--include '*.png' \
-		--exclude '*' \
-		$(IMGDIR)/ $(BDIRIMG)/
-
+		--include '*.jpg'	\
+		--include '*.png'	\
+		--exclude '*'		\
+		$(IMGDIR)/ $(BDIR)/img/
