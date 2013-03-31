@@ -18,13 +18,91 @@ Version: 0.1
 }
 
 
-/* fonts */
-$font-light: "ssp light", helvetica, arial, sans-serif;
+// colors
+$c-txt: #333;        // text color
+$c-bg: #eee;         // page background
+$c-bg-canvas: #ddd;  // content background
+$c-bg-head: white;   // background headline
+$c-bg-highlighted: hsl(210, 100%, 50%); // inverted boxes
+$c-box-border: #ccc; // element border
 
 
+// fonts
+$f-main: "ssp light", helvetica, arial, sans-serif;
+
+
+// cascade
 body {
+	color: $c-txt;
     font: {
-     	family: $font-light;
+     	family: $f-main;
 		size: 13px;
     }
+	background: {
+		color: $c-bg;
+	}
+}
+
+#wrapper {
+	width: 650px;
+	margin: 0 auto;
+	padding: 20px 0 0 0;
+	background: $c-bg-canvas;
+	border: {
+		left: 1px; right: 1px;
+		color: $c-box-border;
+		style: solid;
+	}
+}
+
+
+// heading
+$heading-letter-spacing: .3em;
+@mixin heading {
+	text-transform: uppercase;
+	letter-spacing: $heading-letter-spacing;
+	background: $c-bg-head;
+	border: 1px solid $c-box-border;
+	display: inline-block;
+}
+
+header {
+	h1 {
+		@include heading;	
+		font-size: 2em;
+		padding: {
+			top: .3em;
+			right: .5em - $heading-letter-spacing;
+			bottom: .3em;
+			left: .5em;
+		}
+		border: {
+			right-width: 5px;
+			bottom-width: 5px;
+		}
+		position: relative;
+		left: -10px;
+	}
+	section.decoration {
+		position: relative;
+		> span {
+			position: absolute;
+			top: -4px; left: -10px;
+			border: {
+				style: solid;
+				width: 0 10px 10px 0;
+				color: transparent;
+				right-color: darken($c-box-border, 30%);
+			}
+		}
+		> h2 {
+			@include heading;
+			padding-left: $heading-letter-spacing;
+			margin: 5px 0 0 10px;
+			border: {
+				right-width: 3px;
+				bottom-width: 3px;
+			}
+		}
+	}
 }
