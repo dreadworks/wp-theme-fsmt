@@ -8,10 +8,7 @@
 #	PROGRAMS
 #
 # rsync
-SYNC := rsync -au --delete
 CP := gcp
-
-
 
 #
 #	DIRECTORIES
@@ -43,35 +40,27 @@ clean:
 # php
 php:
 	@echo "\nsyncing php scripts"
-	$(SYNC) \
-		--include '*.php'	\
-		--exclude '*'		\
-		$(PHPDIR)/ $(BDIR)
+	@$(CP) -uv $(PHPDIR)/*.php $(BDIR)/
 
 
 # css
 css: $(BDIR)/style.css
 $(BDIR)/style.css:
 	@echo "\nupdating stylesheets"
-	sass --update "$(CSSDIR)/core.scss:$(BDIR)/style.css"
+	@sass --update "$(CSSDIR)/core.scss:$(BDIR)/style.css"
 
 
 # fonts
 fonts:
 	@echo "\nsyncing fonts"
-	@echo $(CP) $(CPFLAGS) foo
-#	@find $(FNTDIR) \
-#		-name "SourceSansPro-Light.ttf"		\
-#		-o -name "SourceSansPro-Regular.ttf"	\
-#	| xargs $(CP) $(CPFLAGS) $(BDIR)/ttf/			\
-#	|| cat src/make/cperror.txt; exit 2;
-
+	@$(CP) -uv			\
+		$(FNTDIR)/SourceSansPro/ttf/SourceSansPro-Light.ttf	\
+	$(BDIR)/ttf/
 
 # images
 img:
 	@echo "\nsyncing images"
-	$(SYNC) \
-		--include '*.jpg'	\
-		--include '*.png'	\
-		--exclude '*'		\
-		$(IMGDIR)/ $(BDIR)/img/
+	@$(CP) -uv				\
+		$(IMGDIR)/*.jpg		\
+		$(IMGDIR)/*.png 	\
+	$(BDIR)/img/
