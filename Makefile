@@ -28,7 +28,6 @@ IMGDIR := src/img
 #
 all: base php css fonts img
 base:
-	@echo "\nprepare /build if not present"
 	mkdir -p build
 	mkdir -p build/img
 	mkdir -p build/ttf
@@ -39,27 +38,23 @@ clean:
 
 # php
 php:
-	@echo "\nsyncing php scripts"
 	@$(CP) -uv $(PHPDIR)/*.php $(BDIR)/
 
 
 # css
 css: $(BDIR)/style.css
-$(BDIR)/style.css:
-	@echo "\nupdating stylesheets"
+$(BDIR)/style.css: $(CSSDIR)/core.scss
 	@sass --update "$(CSSDIR)/core.scss:$(BDIR)/style.css"
 
 
 # fonts
 fonts:
-	@echo "\nsyncing fonts"
 	@$(CP) -uv			\
 		$(FNTDIR)/SourceSansPro/ttf/SourceSansPro-Light.ttf	\
 	$(BDIR)/ttf/
 
 # images
 img:
-	@echo "\nsyncing images"
 	@$(CP) -uv				\
 		$(IMGDIR)/*.jpg		\
 		$(IMGDIR)/*.png 	\
