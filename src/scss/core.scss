@@ -9,4 +9,22 @@ Version: 0.1
 
 */
 
+
 * { padding: 0; margin: 0; border: 0; }
+
+@font-face {
+	font-family: "ssp light";
+	src: url("ttf/SourceSansPro-Light.ttf");
+}
+
+
+/* fonts */
+$font-light: "ssp light", helvetica, arial, sans-serif;
+
+
+body {
+    font: {
+     	family: $font-light;
+		size: 13px;
+    }
+}
