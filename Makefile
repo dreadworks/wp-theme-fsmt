@@ -26,11 +26,14 @@ IMGDIR := src/img
 #
 #	DEPENDENCIES
 #
-all: base php css fonts
+all: base php css fonts img
 base:
-	mkdir -p build
-	mkdir -p build/img
-	mkdir -p build/ttf
+	@if [ ! -d "build" ]; then		\
+		echo "create build dir";	\
+		mkdir -p build;				\
+		mkdir -p build/img;			\
+		mkdir -p build/ttf;			\
+	fi
 
 clean:
 	-rm -rf build
@@ -50,12 +53,11 @@ $(BDIR)/style.css: $(CSSDIR)/core.scss
 # fonts
 fonts:
 	@$(CP) -uv			\
-		$(FNTDIR)/SourceSansPro/ttf/SourceSansPro-Light.ttf	\
+		$(FNTDIR)/SourceSansPro/ttf/SourceSansPro-ExtraLight.ttf	\
 	$(BDIR)/ttf/
 
 # images
 img:
 	@$(CP) -uv				\
 		$(IMGDIR)/*.jpg		\
-		$(IMGDIR)/*.png 	\
 	$(BDIR)/img/
