@@ -23,8 +23,9 @@ $c-txt: #333;        // text color
 $c-bg: #eee;         // page background
 $c-bg-canvas: #ddd;  // content background
 $c-bg-head: white;   // background headline
-$c-bg-highlighted: hsl(210, 100%, 50%); // inverted boxes
-$c-box-border: #ccc; // element border
+$c-bg-highlighted: hsl(210, 100%, 50%);    // inverted boxes
+$c-box-border: #bbb; // element border
+$c-box-shadow: darken($c-box-border, 20%);
 
 
 // fonts
@@ -53,10 +54,12 @@ body {
 		color: $c-box-border;
 		style: solid;
 	}
+	box-shadow: 10px 10px $c-box-border;
 }
 
 
 // heading
+$heading-offset: 20px;
 $heading-letter-spacing: .3em;
 @mixin heading {
 	text-transform: uppercase;
@@ -64,6 +67,8 @@ $heading-letter-spacing: .3em;
 	background: $c-bg-head;
 	border: 1px solid $c-box-border;
 	display: inline-block;
+	border-right-color: $c-box-shadow;
+	border-bottom-color: $c-box-shadow;
 }
 
 header {
@@ -76,33 +81,29 @@ header {
 			bottom: .3em;
 			left: .5em;
 		}
-		border: {
-			right-width: 5px;
-			bottom-width: 5px;
-		}
+		box-shadow: $heading-offset/2 $heading-offset/2 $c-box-border;
 		position: relative;
-		left: -10px;
+		left: -$heading-offset;
 	}
 	section.decoration {
 		position: relative;
+
+		// triangle shadow
 		> span {
 			position: absolute;
-			top: -4px; left: -10px;
+			left: -$heading-offset;
 			border: {
 				style: solid;
-				width: 0 10px 10px 0;
+				width: 0 $heading-offset $heading-offset 0;
 				color: transparent;
-				right-color: darken($c-box-border, 30%);
+				right-color: $c-box-shadow;
 			}
 		}
 		> h2 {
 			@include heading;
 			padding-left: $heading-letter-spacing;
-			margin: 5px 0 0 10px;
-			border: {
-				right-width: 3px;
-				bottom-width: 3px;
-			}
+			margin: $heading-offset 0 0 10px;
+			box-shadow: 5px 5px $c-box-border;
 		}
 	}
 }
