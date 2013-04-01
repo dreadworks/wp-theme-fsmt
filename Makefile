@@ -46,7 +46,7 @@ php:
 
 # css
 css: $(BDIR)/style.css
-$(BDIR)/style.css: $(CSSDIR)/core.scss
+$(BDIR)/style.css: $(CSSDIR)/*.scss
 	@sass --update "$(CSSDIR)/core.scss:$(BDIR)/style.css"
 
 
