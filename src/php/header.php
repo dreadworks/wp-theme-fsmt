@@ -6,6 +6,9 @@
 		<link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" type="text/css" />
 	</head>
 	<body>
+		<aside id="meta">
+			<a href="dreadworks.de" title="This is a Dreadworks Project">The Dreadworks Project</a>
+		</aside>
 
 		<div id="wrapper">
 			<header>
