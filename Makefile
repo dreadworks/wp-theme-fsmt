@@ -26,7 +26,7 @@ IMGDIR := src/img
 #
 #	DEPENDENCIES
 #
-all: base php css fonts img
+all: base php css fonts
 base:
 	mkdir -p build
 	mkdir -p build/img
