@@ -1,0 +1,78 @@
+
+// definitions
+$heading-offset: 20px;
+$heading-letter-spacing: .3em;
+
+@mixin heading {
+	color: lighten($c-b3, 50%);
+	text-transform: uppercase;
+	letter-spacing: $heading-letter-spacing;
+	background: $c-b3;
+	border: 1px solid darken($c-b3, 10%);
+	display: inline-block;
+	border-right-color: darken($c-b3, 20%);
+	border-bottom-color: darken($c-b3, 20%);
+}
+
+
+// rules
+header {
+	h1 {
+		@include heading;	
+		font-size: 2em;
+		padding: {
+			top: .3em;
+			right: .5em - $heading-letter-spacing;
+			bottom: .3em;
+			left: .5em;
+		}
+		box-shadow: $heading-offset/2 $heading-offset/2 $c-box-shadow;
+		position: relative;
+		left: -$heading-offset;
+	}
+	section.decoration {
+		position: relative;
+
+		// triangle shadow
+		> span {
+			position: absolute;
+			top: 1px; left: -$heading-offset + 1px;
+			border: {
+				style: solid;
+				width: 0 ($heading-offset - 2px) $heading-offset 0;
+				color: transparent;
+				right-color: darken($c-b3, 40%);
+			}
+		}
+		> h2 {
+			@include heading;
+			padding-left: $heading-letter-spacing;
+			margin: $heading-offset 0 0 10px;
+			box-shadow: 5px 5px $c-box-shadow;
+		}
+	}
+}
+
+#meta {
+	position: absolute;
+	top: 0; right: 0; left: 0;
+	z-index: 2;
+	background: #333;
+	text-align: center;
+	font-size: 0.7em;
+	padding: 10px 0 10px;
+	border-bottom: {
+		width: 1px;
+		style: solid;
+		color: #111;
+	}
+	box-shadow: 0 10px $c-box-shadow;
+	> a {
+		color: #999;
+		letter-spacing: .2em;
+		text: {
+			decoration: none;
+			transform: uppercase;
+		}
+	}
+}
