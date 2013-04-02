@@ -11,7 +11,7 @@
 		</aside>
 
 		<div id="wrapper">
-			<header>
+			<header id="heading">
 				<h1><?php bloginfo('name'); ?></h1>
 				<section class="decoration">
 					<span></span>

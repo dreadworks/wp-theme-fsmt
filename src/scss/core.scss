@@ -68,6 +68,10 @@ body {
 	box-shadow: 10px 10px $c-box-shadow;
 }
 
+#content {
+	padding: 20px 10px;
+}
+
 
 // compilation
 @import "heading";
