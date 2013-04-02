@@ -57,14 +57,9 @@ body {
 
 #wrapper {
 	width: 650px;
-	margin: 0 auto;
-	padding: 60px 0 0 0;
+	margin: 10px auto;
+	padding: 20px 0 0 0;
 	background: $c-bg-canvas;
-	border: {
-		right: 1px; bottom: 1px; left: 1px;
-		color: $c-box-border;
-		style: solid;
-	}
 	box-shadow: 10px 10px $c-box-shadow;
 }
 
