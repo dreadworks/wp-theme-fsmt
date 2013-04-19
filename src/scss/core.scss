@@ -46,8 +46,16 @@ $c-box-shadow: transparentize($c-b1, .8);
 // fonts
 $f-base: helvetica, arial, sans-serif;
 $f-main: "ssp extralight", $f-base;
+$f-main-b: "ssp regular" $f-main;
 $f-content: "Times New Roman", serif;
 
+
+// general rules
+a {
+	color: $c-b3;
+	font-family: $f-main-b;
+	text-decoration: none;
+}
 
 // cascade
 body {

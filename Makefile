@@ -18,15 +18,21 @@ BDIR=build
 
 # src
 PHPDIR := src/php
+JSDIR  := src/js
 CSSDIR := src/scss
 FNTDIR := src/fonts
 IMGDIR := src/img
+
+# javascript source files
+JS_SRC := \
+	$(JSDIR)/lib/jquery-2.0.0.js	\
+	$(JSDIR)/core.js
 
 
 #
 #	DEPENDENCIES
 #
-all: base php css fonts img
+all: base php js css fonts img
 base:
 	@if [ ! -d "build" ]; then		\
 		echo "create build dir";	\
@@ -43,6 +49,11 @@ clean:
 php:
 	@$(CP) -uv $(PHPDIR)/*.php $(BDIR)/
 
+# js
+js: $(BDIR)/fsmt.js
+$(BDIR)/fsmt.js: $(JS_SRC)
+	@cat $(JS_SRC) > $(BDIR)/fsmt.js
+	@echo "updated javascript file"
 
 # css
 css: $(BDIR)/style.css
