@@ -1,6 +1,6 @@
 /*
  
-Theme Name: FSMT
+,Theme Name: FSMT
 Theme URI: fsmt.dreadworks.de
 Description: FSMT Blog Theme
 Author: Felix Hamann
@@ -16,6 +16,14 @@ Version: 0.1
 	font-family: "ssp extralight";
 	src: url("ttf/SourceSansPro-ExtraLight.ttf");
 }
+@font-face {
+	font-family: "ssp regular";
+	src: url("ttf/SourceSansPro-Regular.ttf");
+}
+
+
+// dimensions
+$d-content-width: 650px;
 
 
 // colors
@@ -23,13 +31,12 @@ $c-b1: black;
 $c-b2: white;
 $c-b3: #0099ff;
 
-// text
 $c-txt: #333;
 
-// background
-$c-bg: #404040; // see src/img/bg.png
+$c-bg: #3a4046; // see src/img/bg.png
 $c-bg-canvas: transparentize($c-b2, .2);
 $c-bg-head: darken($c-b2, 20%);
+
 
 // decorative elements
 $c-box-border: lighten($c-b1, 40%);
@@ -37,7 +44,9 @@ $c-box-shadow: transparentize($c-b1, .8);
 
 
 // fonts
-$f-main: "ssp extralight", helvetica, arial, sans-serif;
+$f-base: helvetica, arial, sans-serif;
+$f-main: "ssp extralight", $f-base;
+$f-content: "Times New Roman", serif;
 
 
 // cascade
@@ -56,17 +65,14 @@ body {
 }
 
 #wrapper {
-	width: 650px;
+	width: $d-content-width;
 	margin: 10px auto;
 	padding: 20px 0 0 0;
 	background: $c-bg-canvas;
 	box-shadow: 10px 10px $c-box-shadow;
 }
 
-#content {
-	padding: 20px 10px;
-}
-
 
 // compilation
 @import "heading";
+@import "article";

@@ -17,6 +17,7 @@ $heading-letter-spacing: .3em;
 
 // rules
 #heading {
+	margin-bottom: 20px;
 	h1 {
 		@include heading;	
 		font-size: 2em;

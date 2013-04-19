@@ -1,8 +1,12 @@
 <?php get_header(); ?>
-		<div>
+		<div id="content">
 			
 			<?php
-		have_post();
+			 while (have_posts()) {
+				 the_post();
+				 get_template_part('content');
+			 }
 			?>
+
 		</div>
 <?php get_footer(); ?>

@@ -7,7 +7,7 @@
 	</head>
 	<body>
 		<aside id="meta">
-			<a href="dreadworks.de" title="This is a Dreadworks Project">The Dreadworks Project</a>
+			<a href="http://dreadworks.de" title="This is a Dreadworks Project">The Dreadworks Project</a>
 		</aside>
 
 		<div id="wrapper">

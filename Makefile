@@ -8,7 +8,7 @@
 #	PROGRAMS
 #
 # rsync
-CP := gcp
+CP := cp
 
 #
 #	DIRECTORIES
@@ -54,6 +54,7 @@ $(BDIR)/style.css: $(CSSDIR)/*.scss
 fonts:
 	@$(CP) -uv			\
 		$(FNTDIR)/SourceSansPro/ttf/SourceSansPro-ExtraLight.ttf	\
+		$(FNTDIR)/SourceSansPro/ttf/SourceSansPro-Regular.ttf		\
 	$(BDIR)/ttf/
 
 # images
