@@ -19,8 +19,12 @@ $heading-letter-spacing: .3em;
 #heading {
 	margin-bottom: 20px;
 	h1 {
+		a {
+			color: $c-b2;
+			font-weight: normal;
+		}
 		@include heading;	
-		font-size: 2em;
+		font-size: 1.7em;
 		padding: {
 			top: .3em;
 			right: .5em - $heading-letter-spacing;

@@ -80,6 +80,29 @@ body {
 	box-shadow: 10px 10px $c-box-shadow;
 }
 
+// TODO: nav.scss
+#catnav {
+	ul {
+		text-align: center;
+		padding: 5px 0;
+		li {
+			display: inline-block;
+		}
+		a {
+			text-transform: uppercase;
+			background: $c-b2;
+			padding: .3em .5em;
+			border: 1px dotted lighten($c-b1, 30%);
+		}
+	}
+}
+
+#footernav {
+	text-align: center;
+	text-transform: uppercase;
+	padding-bottom: 1em;
+}
+
 
 // compilation
 @import "heading";

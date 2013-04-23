@@ -5,13 +5,13 @@ $article-offset: 40px;
 
 // rules
 #content {
-	padding: 20px 0;
+	padding: 20px 0 0;
 
 	> article {
 		width: $d-content-width;
 		position: relative;
 		left: -$article-offset;
-		padding: $article-offset/2 $article-offset;
+		padding: $article-offset/2 $article-offset $article-offset;
 		background: darken($c-b2, 10%);
 		box-shadow: 10px 0 20px $c-box-shadow;
 
@@ -26,7 +26,7 @@ $article-offset: 40px;
 					width: 1px;
 					style: dotted;
 					color: darken($c-b2, 50%);
-				};
+				}
 			}
 			> span, > ul {
 				@extend h1;
@@ -36,8 +36,6 @@ $article-offset: 40px;
 			}
 			> ul {
 				list-style: none;
-				position: relative;
-				top: -1px;
 				padding-left: 0;
 				padding-right: 0;
 				
@@ -66,6 +64,7 @@ $article-offset: 40px;
 					color: darken($c-b2, 50%);
 					width: 1px;
 				};
+				border-top-width: 0;
 			}
 			p {
 				font: 1.2em/1.5em $f-content;
