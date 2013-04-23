@@ -2,9 +2,8 @@
 <html <?php language_attributes(); ?>>
 	<head>
 		<meta charset="<?php bloginfo('charset'); ?>" />
-		<title><?php echo wp_title(); ?></title>
+		<title><?php bloginfo('name'); ?></title>
 		<link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" type="text/css" />
-		<scipt type="text/css" src="<?php bloginfo('template_url'); ?>/fsmt.js">
 	</head>
 	<body>
 		<aside id="meta">
@@ -13,11 +12,21 @@
 
 		<div id="wrapper">
 			<header id="heading">
-				<h1><?php bloginfo('name'); ?></h1>
+				<h1>
+					<a href="<?php get_bloginfo('url')?>" title="Zur&uuml;ck zur Startseite">
+						<?php bloginfo('name'); ?>
+					</a>
+				</h1>
 				<section class="decoration">
 					<span></span>
 					<h2><?php bloginfo('description'); ?></h2>
 				</section>
 			</header>
+			
+			<navigation id="catnav">
+				<ul>
+					<?php wp_list_categories('title_li='); ?>
+				</ul>
+			</navigation>
 
 				
