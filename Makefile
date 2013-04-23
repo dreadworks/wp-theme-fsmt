@@ -25,7 +25,7 @@ IMGDIR := src/img
 
 # javascript source files
 JS_SRC := \
-	$(JSDIR)/ext/analytics.js
+#	$(JSDIR)/ext/analytics.js
 #	$(JSDIR)/lib/jquery-2.0.0.js	\
 #	$(JSDIR)/core.js
 
@@ -33,7 +33,7 @@ JS_SRC := \
 #
 #	DEPENDENCIES
 #
-all: base php js css fonts img
+all: base php css fonts img
 base:
 	@if [ ! -d "build" ]; then		\
 		echo "create build dir";	\
