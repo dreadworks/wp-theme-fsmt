@@ -38,38 +38,57 @@ $article-offset: 40px;
 				list-style: none;
 				position: relative;
 				top: -1px;
+				padding-left: 0;
+				padding-right: 0;
+				
+				li {
+					display: inline-block;
+					padding: 0 1em;
+					border-left: {
+						width: 1px;
+						color: darken($c-b1, 30%);
+						style: dotted;
+					};
+				}
+				
+				li:first-child {
+					border-left: 0;
+				};
 			}
 		}
 		
 		> section.content {
 			.text {
 				background: $c-b2;
-				padding: .5em $article-offset;
-				margin: $article-offset/2 0 $article-offset/2+5px;
+				padding: 1em $article-offset .5em;
 				border: {
 					style: dotted;
 					color: darken($c-b2, 50%);
 					width: 1px;
 				};
-			};
+			}
 			p {
 				font: 1.2em/1.5em $f-content;
 				padding: .5em 0;
 			}
-			.no-f p {
-				box-shadow: none;
-				padding: 0;
-				margin: 0;
+			blockquote p {
+				font-style: italic;
+			}
+			.no-f {
+				margin: $article-offset/2+5px 0 0;
+				p {
+					box-shadow: none;
+					padding: 0;
+				}
 			}
 			span.youtube {
 				height: 400px;
 				display: block;
 				border: {
 					width: 1px;
-					color: brighten($c-b1, 20%);
+					color: lighten($c-b1, 20%);
 					style: solid;
 				}
-				opacity: .5;
 			}
 		}
 
