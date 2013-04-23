@@ -4,6 +4,7 @@
 		<meta charset="<?php bloginfo('charset'); ?>" />
 		<title><?php echo wp_title(); ?></title>
 		<link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" type="text/css" />
+		<scipt type="text/css" src="<?php bloginfo('template_url'); ?>/fsmt.js">
 	</head>
 	<body>
 		<aside id="meta">

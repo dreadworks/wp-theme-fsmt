@@ -25,8 +25,9 @@ IMGDIR := src/img
 
 # javascript source files
 JS_SRC := \
-	$(JSDIR)/lib/jquery-2.0.0.js	\
-	$(JSDIR)/core.js
+	$(JSDIR)/ext/analytics.js
+#	$(JSDIR)/lib/jquery-2.0.0.js	\
+#	$(JSDIR)/core.js
 
 
 #
@@ -53,7 +54,7 @@ php:
 js: $(BDIR)/fsmt.js
 $(BDIR)/fsmt.js: $(JS_SRC)
 	@cat $(JS_SRC) > $(BDIR)/fsmt.js
-	@echo "updated javascript file"
+	@echo "overwrite $(BDIR)/fsmt.js"
 
 # css
 css: $(BDIR)/style.css
